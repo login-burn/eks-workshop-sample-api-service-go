@@ -22,8 +22,6 @@ phases:
       - export K3DCLUSTERNAME=k3s-default
       - k3d cluster create $K3DCLUSTERNAME
       - sleep 20
-      - export KUBECONFIG="$(k3d kubeconfig get $K3DCLUSTERNAME)"
-      - echo $KUBECONFIG
       - ./create_secret.sh
       - kubectl apply -f hello-k8s.yml
       - sleep 20
